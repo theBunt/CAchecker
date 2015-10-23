@@ -65,7 +65,7 @@ void FileCheck::readFile()
 					if (wordAssesment)
 						assessWord(word);
 					}
-				end++;
+				//end++;
 				cout << "\n   NEXT LINE  " << endl;
 			}
 		}
@@ -83,6 +83,6 @@ void FileCheck::displayInfo()
 	cout << "Selection count : " << selectionCount << endl;
 	cout << "Iterative count : " << itterativeCount << endl;
 	cout << "Variable count : " << variableCount << endl;
-	cout << "Comment count : " << variableCount << endl;
+	cout << "Comment count : " << commentCount << endl;
 	cout << "File size : " << fileSize << " bytes." << endl;
 }
