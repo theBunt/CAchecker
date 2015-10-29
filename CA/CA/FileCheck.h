@@ -21,6 +21,7 @@ private:
 	int selectionCount;
 	int lineCount;
 	int commentCount;
+	int includeCount;
 	string name;
 	ifstream inStream;
 	ofstream outStream;
@@ -28,7 +29,8 @@ private:
 public:
 	FileCheck();
 	FileCheck(string);
-	void assessWord(string);
+	void assessWord(string & wordToCheck);
 	void readFile();
 	void displayInfo();
+	void searchHaystack(string &haystack);
 };

@@ -24,11 +24,11 @@ void ReadDirectory::readDirFilenames()
 
 	DIR *pdir = NULL; // remember, it's good practice to initialise a pointer to NULL!
 	struct dirent *pent = NULL;
-	name = "F:/Year3/AlgorithmDataStructure/elapsedCA/";//hardcode for convenience, change to what suits!!
-	string word = "";
+	name = "F:/Year3/AlgorithmDataStructure/elapsedCA/Checker";//hardcode for convenience, change to what suits!!
+	/*string word = "";
 	cout << "Enter the full path and directory name:\t";
 	cin >> word;
-	name = name + word;
+	name = name + word;*/
 
 	pdir = opendir(name.c_str()); // "." will refer to the current directory
 
