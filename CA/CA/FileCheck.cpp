@@ -1,5 +1,8 @@
 #include "FileCheck.h"
 #include <sstream>
+#include <iomanip>
+using namespace std;
+
 
 FileCheck::FileCheck()
 {
@@ -8,7 +11,7 @@ FileCheck::FileCheck()
 
 FileCheck::FileCheck(string fname)
 {
-	cout << "\n **********    creating filecheck object           ***************" << name << endl;
+	//cout << "\n **********    creating filecheck object           ***************" << name << endl;
 	name = fname;
 	fileSize = 0;
 	wordCount = 0;
@@ -34,7 +37,7 @@ void FileCheck::assessWord(string wordToCheck)
 
 void FileCheck::readFile()
 {
-	displayInfo();
+	//displayInfo();
 	long begin = 0;
 	long end = 0;
 	inStream.open(name);
@@ -44,10 +47,10 @@ void FileCheck::readFile()
 			system("pause");
 			exit(1);
 		}
-		cout << "\n******************\nExtracting from file: " << name << endl;
+		//cout << "\n******************\nExtracting from file: " << name << endl;
 		string word ,line;
 		bool wordAssesment = true;
-		begin = inStream.tellg();
+		
 		while (!inStream.eof()) {
 			while (getline(inStream, line)) {
 				istringstream iss(line);
@@ -56,33 +59,41 @@ void FileCheck::readFile()
 					/* do stuff with word */
 
 					if ((word[0] == '/') && (word[1] == '/')) {
-						cout << "\n   SPOTTED A COMMENT  " << endl;
+						//cout << "\n   SPOTTED A COMMENT  " << endl;
 						wordAssesment = false;
 						commentCount++;
 					}
-					cout << word << " ";
+					//cout << word << " ";
 					wordCount++;
 					if (wordAssesment)
 						assessWord(word);
-					}
-				//end++;
-				cout << "\n   NEXT LINE  " << endl;
+				}
+
+				//cout << "\n   NEXT LINE  " << endl;
+
 			}
 		}
-		cout << "line count " << end;
-		inStream.seekg(0, ios::end);
-		end = inStream.tellg();
-		fileSize = (end - begin);
+		//cout << "line count " << end;
+		
 		inStream.close();
 }
 
 void FileCheck::displayInfo()
 {
-	cout << "\nFile name : " << name << endl;
-	cout << "Word count : " << wordCount << endl;
+	cout << "" << endl;
+	cout << "File Name : " << name << endl;
+	cout << "" << endl;
+	cout << setfill('-') << setw(110) << "-" << endl;
+	cout  <<  "Word Count" << setw(20) << setfill(' ') <<  "Selection Count" << setw(20) << "Iterative Count" << setw(20) << "Variable Count" << setw(20) << "Comment Count" << setw(15) << "File Size" << endl;
+	cout << setfill('-') << setw(110) << "-" << endl;
+	cout << setw(2) << setfill(' ') << wordCount << setw(20) << selectionCount << setw(20) << itterativeCount << setw(20) << variableCount << setw(20) << commentCount << setw(20) << fileSize << endl;
+	cout << setfill('-') << setw(110) << "-" << endl;
+	cout << "" << endl;
+
+	/*
 	cout << "Selection count : " << selectionCount << endl;
 	cout << "Iterative count : " << itterativeCount << endl;
 	cout << "Variable count : " << variableCount << endl;
 	cout << "Comment count : " << commentCount << endl;
-	cout << "File size : " << fileSize << " bytes." << endl;
+	cout << "File size : " << fileSize << " bytes." << endl;*/
 }

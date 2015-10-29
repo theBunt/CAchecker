@@ -24,7 +24,7 @@ void ReadDirectory::readDirFilenames()
 
 	DIR *pdir = NULL; // remember, it's good practice to initialise a pointer to NULL!
 	struct dirent *pent = NULL;
-	name = "F:/Year3/AlgorithmDataStructure/elapsedCA/Checker";//hardcode for convenience, change to what suits!!
+	name = "G:/algoData/checker";//hardcode for convenience, change to what suits!!
 	/*string word = "";
 	cout << "Enter the full path and directory name:\t";
 	cin >> word;
