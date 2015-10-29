@@ -11,7 +11,7 @@ using namespace std;
 int main() // entry point of the program
 {
 	ReadDirectory readDir("Example");
-	cout << readDir.getName() << endl;
+	//cout << readDir.getName() << endl;
 	readDir.readDirFilenames();
 	readDir.displayInfo();
 	system("pause");
