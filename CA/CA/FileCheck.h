@@ -25,7 +25,9 @@ private:
 	string name;
 	ifstream inStream;
 	ofstream outStream;
-
+	static const string selectionWords[];
+	static const string ierativeWords[];
+	static const string variableTypes[];
 public:
 	FileCheck();
 	FileCheck(string);
